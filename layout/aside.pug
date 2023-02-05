@@ -1,0 +1,25 @@
+- var asideContent = [{area: "Business & Management", sections: []}, {area: "Computing & IT", sections: []}, {area: "Fashion & Media", sections: []},  {area: "Finance & Accounting", sections: []}, {area: "Law & Criminology", sections: []}, {area: "Marketing & Communications", sections: []}, {area: "Psychology & Social Sciences", sections: [{name: "Market Research Executive", link: "#"}, {name: "Child Psychologist", link: "#"}, {name: "Guidance Counsellor", link: "#"}, {name: "Behaviour Analyst", link: "#"},  {name: "Recreational Therapist", link: "#"}]}]
+
+aside.aside__container 
+  div.aside__header
+    img.aside__icon(src="/images/education.svg", alt="education")
+    label.aside__title(for=title) 
+          span.aside__title_large Careers
+          span.aside__title_small Choose YOUR Career
+          span.aside__arrow 
+            svg(xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#757575" class="bi bi-chevron-right" viewBox="0 0 16 16")
+              path(fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z")
+  ul.list
+    for i in asideContent 
+      li.list__item
+        input.list__input(type="radio" name="accordion" id=i.area)
+        label.list__label(for=i.area)=i.area
+          span.list__arrow 
+            svg(xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16")
+              path(fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z")
+        ul.list__nested
+          for n in i.sections 
+            li.list__item-nested
+              a.list__link(href=n.link)=n.name 
+  div.aside__border       
+  button.aside__btn Show all programmes

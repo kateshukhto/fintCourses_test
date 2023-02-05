@@ -1,0 +1,97 @@
+@import "variables";
+
+* {
+  box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6, p{
+  margin: 0;
+}
+
+span {
+  font-size: 0;
+}
+
+ul {
+  padding: 0;
+}
+a {
+  text-decoration: none;
+}
+
+body {
+  background-color: #F7F7F7;
+}
+input[type="radio"] {
+  display: none;
+}
+
+input[type="radio"] + label + ul {
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.5s linear;
+}
+
+input[type="radio"]:checked + label + ul {
+  max-height: 400px;
+}
+input[type="radio"]:checked + label span {
+  transform: rotate(90deg);
+}
+input[type="radio"]:checked + label {
+  color: $green;
+}
+input[type="radio"]:checked + label span svg {
+  fill: $green;
+}
+
+.container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+.inner__container {
+  display: flex;
+}
+
+.main__title {
+  font-family: $playfair;
+  font-weight: 400;
+  font-size: 30px;
+  color: $black;
+  margin: 60px 0 30px;
+}
+
+@media screen and (max-width: 1200px) {
+  .container {
+    max-width: 980px;
+  }
+}
+
+@media screen and (max-width: 980px) {
+  .container {
+    max-width: 750px;
+  }
+}
+
+@media screen and (max-width: 768px) { 
+  .container {
+    max-width: 450px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  body {
+    background-color: $white;
+  }
+  .container {
+    max-width: 330px;
+  }
+
+  .main__title {
+    margin: 15px 0 20px 0;
+  }
+  .inner__container {
+    display: block;
+  }
+}

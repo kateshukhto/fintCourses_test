@@ -1,0 +1,286 @@
+@import "variables";
+
+.close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: none;
+  opacity: 0.7;
+
+  &:hover {
+    transform: rotate(45deg);
+    opacity: 100%;
+  }
+}
+
+.courses {
+  width: 100%;
+
+  &__wrapper {
+    margin-left: 14px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 282px);
+    gap: 23px 20px;
+    justify-items: stretch;
+    align-items: stretch;
+  }
+
+  &__btn {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    background-color: transparent;
+    margin: 46px auto 50px auto;
+  }
+
+  &__text {
+    margin-right: 10px;
+    font-family: $helvetica;
+    font-weight: 700;
+    font-size: 14px;
+    text-transform: uppercase;
+    color: $black;
+  }
+}
+
+.card {
+  height: 405px;
+  position: relative;
+  perspective: 1000px;
+  box-shadow: 0px 4px 11px rgba(0, 0, 0, 0.06);
+  cursor: grab;
+
+  &__price {
+    display: none;
+  }
+
+  &__front, &__back {
+    box-sizing: border-box;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    transition: 1s;
+    backface-visibility: hidden;
+    background-color: $white;
+  }
+  &__front {
+    border-radius: 2px;
+    border-top: 6px solid $green;
+  }
+
+  &__back {
+    transform: rotateY(180deg);
+    background-color: $green;
+  }
+
+  &__close {
+    display: none;
+  }
+
+  &__logo {
+    align-self: flex-end;
+    margin-bottom: 30px;
+
+    &_img {
+      max-height: 34px;
+      width: 100%;
+      object-fit: contain;
+    }
+  }
+
+  &__suptitle {
+    font-family: $helvetica;
+    font-weight: 400;
+    font-size: 13px;
+    text-transform: uppercase;
+    color: $green;
+    margin-bottom: 15px;
+  }
+
+  &__title {
+    font-family: $helvetica;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 30px;
+    color: $black;
+    margin-top: 0;
+    margin-bottom: 70px;
+  }
+
+  &__flex {
+    display: flex;
+    align-items: center;
+
+    &:last-child {
+      margin-bottom: 29px;
+    }
+  }
+
+  &__subtitle {
+    font-family: $helvetica;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    color: $black;
+    margin-left: 12px;
+  }
+
+  &__btn {
+    padding: 15px 0 12px 0;
+    border: none;
+    background: #259609;
+    border-radius: 3px;
+    font-family: $helvetica;
+    font-weight: 700;
+    font-size: 14px;
+    text-transform: uppercase;
+    color: $white;
+    transition: all .2s linear;
+
+    &_back {
+      background: rgba(255, 255, 255, 0.25);
+
+      &:hover {
+        background-color: $white;
+        color: $green;
+      }
+    }
+  }
+
+  &:hover &__front{
+    transform: rotateY(180deg)
+  }
+
+  &:hover &__back{
+    transform: rotateY(360deg)
+  }
+}
+
+.back {
+  &__close {
+    top: 20px;
+    right: 20px;
+    background-color: $white;
+    transition: all .5s linear;
+  }
+
+  &__title {
+    font-family: $helvetica;
+    font-weight: 700;
+    font-size: 16px;
+    color: $white;
+    line-height: 22px;
+    max-width: 172px;
+    margin-bottom: 20px;
+  }
+
+  &__subtitle {
+    font-family: $helvetica;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 22px;
+    color: $white;
+    margin-bottom: 3px;
+  }
+
+  &__text {
+    font-family: $helvetica;
+    font-weight: 400;
+    font-size: 14px;
+    color: $white;
+    line-height: 22px;
+    margin-bottom: 4px;
+
+    &_last {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__price {
+    font-family: $helvetica;
+    font-weight: 700;
+    font-size: 32px;
+    color: $white;
+    margin: 30px 0 10px;
+  }
+}
+
+
+@media screen and (max-width: 480px) {
+  .courses {
+    &__wrapper {
+      display: block;
+      margin: 0 auto;
+    }
+  }
+  .card {
+    max-width: 330px;
+    height: 330px;
+    margin-bottom: 20px;
+
+    &__close {
+      display: flex;
+      background-color: #259609;
+    }
+
+    &:hover &__front{
+      background-color: #F7F7F7;
+      transform: rotateY(0deg)
+    }
+
+    &__front {
+      padding: 20px 24px;
+    }
+
+    &__logo {
+      margin-bottom: 12px;
+    }
+    &__suptitle {
+      margin-bottom: 8px;
+    }
+    &__title {
+      font-size: 16px;
+      line-height: 22px;
+      margin-bottom: 6px;
+    }
+
+    &__icon {
+      display: none;
+    }
+
+    &__flex {
+      display: block;
+
+       &:last-child {
+        display: none;
+      }
+    }
+    &__subtitle {
+      margin-left: 0;
+    }
+
+    &__price {
+      display: block;
+      margin: 65px 0 14px 0;
+      font-family: $helvetica;
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 22px;
+    }
+
+    &__back {
+      display: none;
+    }
+  }
+}

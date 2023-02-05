@@ -1,0 +1,45 @@
+extends layout/main
+block courses
+      - let data = [ {src: "/images/logo1.png", suptitle: "Business & Management", title: "Master of Business Administration (CMI)", backTitle: "MSc Data Analytics and Information Systems Management", min: "18 months", max: "36 months", start: "January, April, July, October", price: "£8,500"}, {src: "/images/logo1.png", suptitle: "Business & Management", title: "Master of Business Administration (CMI)", backTitle: "MSc Data Analytics and Information Systems Management", min: "18 months", max: "36 months", start: "January, April, July, October", price: "£8,500"}, {src: "/images/logo2.png", suptitle: "Business & Management", title: "Master of Business Administration (CMI)", backTitle: "MSc Data Analytics and Information Systems Management", min: "18 months", max: "36 months", start: "January, April, July, October", price: "£8,500"}, {src: "/images/logo2.png", suptitle: "Business & Management", title: "Master of Business Administration (CMI)", backTitle: "MSc Data Analytics and Information Systems Management", min: "18 months", max: "36 months", start: "January, April, July, October", price: "£8,500"}, {src: "/images/logo3.png", suptitle: "Business & Management", title: "Master of Business Administration (CMI)", backTitle: "MSc Data Analytics and Information Systems Management", min: "18 months", max: "36 months", start: "January, April, July, October", price: "£8,500"}, {src: "/images/logo4.png", suptitle: "Business & Management", title: "Master of Business Administration (CMI)", backTitle: "MSc Data Analytics and Information Systems Management", min: "18 months", max: "36 months", start: "January, April, July, October", price: "£8,500"}]
+      div.courses
+        div.courses__wrapper 
+          for i in data 
+            div.courses__card.card
+              div.card__front 
+                button.card__close.close
+                  span
+                    svg(style="color: white" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16")
+                      path(d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z")
+                div.card__logo
+                  img.card__logo_img(src=i.src, alt="logo")
+                p.card__suptitl=i.suptitle
+                h2.card__title=i.title
+                div.card__footer 
+                  div.card__flex 
+                    img.card__icon(src="/images/cap.svg", alt="cap")
+                    span.card__subtitle Postgraduate
+                  p.card__price £12,650
+                  div.card__flex 
+                    img.card__icon(src="/images/date.svg", alt="date")
+                    span.card__subtitle Every 12 weeks 
+                button.card__btn More Info
+              div.card__back.back
+                button.close.back__close
+                  span
+                    svg(xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16")
+                      path(d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" fill="#259609")
+                p.back__title=i.backTitle
+                p.back__subtitle Duration:
+                p.back__text Minimum: #{i.min}
+                p.back__text.back__text_last Maximum: #{i.max}
+                p.back__subtitle Start Dates:
+                p.back__text=i.start
+                p.back__price=i.price
+                button.card__btn.card__btn_back More Info
+        button.courses__btn 
+          span.courses__text More programmes
+          img.courses__icon(src="/images/load.svg", alt="load") 
+
+
+
+
